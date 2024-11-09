@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kursovoi_final"
         mc:Ignorable="d"
-        Title="Заявка на покупку запчастей" Height="539" Width="500" FontFamily="Century Gothic" FontSize="14" WindowStartupLocation="CenterScreen" Background="#FFFBF8F5" Cursor="Hand">
+        Title="Заявка на покупку запчастей" Height="539" Width="500" FontFamily="Century Gothic" FontSize="14" WindowStartupLocation="CenterScreen" Background="#FFFBF8F5" Cursor="Hand" Icon="/airbus.png">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>

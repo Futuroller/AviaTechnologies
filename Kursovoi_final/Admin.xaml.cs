@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Data;
 using System.Data.SqlClient;
 using Kursovoi_final.Entities;
+using System.Data.Entity;
 
 namespace Kursovoi_final
 {
@@ -133,6 +134,39 @@ MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                     LstBoxSotrudniki.ItemsSource = sotrudniki;
                 }
             }
+        }
+
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            FilterSotrudniki();
+        }
+
+        private void ClearSearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            SearchTextBox.Text = string.Empty;
+            FilterSotrudniki();
+        }
+
+        private void FilterSotrudniki()
+        {
+            var searchText = SearchTextBox.Text.ToLower();
+            var selectedRole = CmbRoles.SelectedItem as b_role;
+
+            var allSotrudniki = App.Context.b_Sotrudniki.Include("b_role").ToList();
+
+            var filteredSotrudniki = allSotrudniki
+                .Where(s =>
+                    (selectedRole == null || selectedRole.ID_role == -1 || s.ID_role == selectedRole.ID_role) &&
+                    (s.Familia.ToLower().Contains(searchText) ||
+                    s.Name.ToLower().Contains(searchText) ||
+                    s.Otchestvo.ToLower().Contains(searchText) ||
+                    s.Login.ToLower().Contains(searchText) ||
+                    s.Password.ToLower().Contains(searchText) ||
+                    s.b_role.Nazvanie.ToLower().Contains(searchText))
+                )
+                .ToList();
+
+            LstBoxSotrudniki.ItemsSource = filteredSotrudniki;
         }
     }
 }

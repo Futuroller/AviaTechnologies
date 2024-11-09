@@ -8,7 +8,7 @@
         Title="Добавление/Редактирование обслуживания" Height="500" Width="600"
         FontFamily="Comic Sans MS" FontSize="14"
         WindowStartupLocation="CenterScreen"
-        Background="#E0E0E0">
+        Background="#E0E0E0" Icon="/airbus.png">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>

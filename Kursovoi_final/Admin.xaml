@@ -29,17 +29,23 @@
         <Image Source="/airbus.png" Width="50" HorizontalAlignment="Left" Height="50" Margin="538,15,0,15" Grid.Column="1"/>
 
         <TextBlock Grid.Row="1" Text="Сотрудники" FontSize="18" Height="auto" Width="auto"  Foreground="#333333" Margin="20,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <TextBlock Grid.Row="1"  Grid.Column="1" Text="Фильтрация по роли:" FontSize="14" Height="auto" Width="auto"  Foreground="#333333" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Фильтрация по роли:" FontSize="14" Height="auto" Width="auto"  Foreground="#333333" Margin="10,17,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
         <!-- ComboBox для фильтрации по ролям -->
-        <ComboBox x:Name="CmbRoles" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Margin="428,0,0,0" SelectionChanged="CmbRoles_SelectionChanged" Grid.Column="1">
+        <ComboBox x:Name="CmbRoles" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="159,14,0,0" SelectionChanged="CmbRoles_SelectionChanged" Grid.Column="1">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Nazvanie}"/>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
+
+        <!-- Поиск и фильтрация -->
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0">
+            <TextBlock Text="Поиск:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <TextBox x:Name="SearchTextBox" Width="150" Height="25" VerticalAlignment="Center" Margin="0,0,10,0" TextChanged="SearchTextBox_TextChanged"/>
+            <Button x:Name="ClearSearchButton" Content="Отмена" Width="120" Height="25" VerticalAlignment="Center" Click="ClearSearchButton_Click"/>
+        </StackPanel>
 
         <!-- Таблица сотрудников -->
         <ListBox x:Name="LstBoxSotrudniki" Grid.Row="2" VerticalAlignment="Top" Margin="10,5,10,0" Height="400" Grid.ColumnSpan="2">
@@ -63,7 +69,7 @@
                                 <TextBlock Text="{Binding Otchestvo,  StringFormat='Отчество: {0}'}" TextWrapping="Wrap" MaxWidth="300" TextAlignment="Justify"/>
                                 <TextBlock Text="{Binding Login, StringFormat='Логин: {0}'}" TextWrapping="Wrap" MaxWidth="300" TextAlignment="Justify"/>
                                 <TextBlock Text="{Binding Password, StringFormat='Пароль: {0}'}" TextWrapping="Wrap" MaxWidth="300" TextAlignment="Justify"/>
-                                <TextBlock Text="{Binding Dolgnost,  StringFormat='Должность: {0}'}" TextWrapping="Wrap" MaxWidth="300" TextAlignment="Justify"/>
+                                <TextBlock Text="{Binding Dolgnost,  StringFormat='Должность: {0}'}" TextWrapping="Wrap" MaxWidth="300" TextAlignment="Left"/>
                             </StackPanel>
 
                             <!-- Кнопка редактирования -->

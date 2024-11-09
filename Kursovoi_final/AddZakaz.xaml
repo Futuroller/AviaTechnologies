@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kursovoi_final"
         mc:Ignorable="d"
-        Title="Оформление заказа" Height="550" Width="500" FontFamily="Century Gothic" FontSize="14" WindowStartupLocation="CenterScreen">
+        Title="Оформление заказа" Height="550" Width="500" FontFamily="Century Gothic" FontSize="14" WindowStartupLocation="CenterScreen" Icon="/airbus.png">
     <Grid Background="#FFFBF8F5" Cursor="Hand">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="143*"/>
