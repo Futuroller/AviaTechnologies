@@ -1,0 +1,129 @@
+﻿<Window x:Class="Kursovoi_final.Manager"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kursovoi_final"
+        mc:Ignorable="d"
+        Title="Менеджер" Height="700" Width="900"
+        FontFamily="Comic Sans MS" FontSize="14"
+        WindowStartupLocation="CenterScreen"
+        Background="#E0E0E0">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="282*"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+
+        <!-- Шапка -->
+        <StackPanel Orientation="Horizontal" Background="#007ACC" HorizontalAlignment="Stretch">
+            <TextBlock Text="АвиаТехнологии" VerticalAlignment="Center" Foreground="White" FontSize="18" HorizontalAlignment="Center" Margin="350,10,10,10"/>
+        </StackPanel>
+
+        <Image Source="/airbus.png" Width="50" HorizontalAlignment="Right" Height="50" Margin="10,10,10,10"/>
+
+        <!-- Кнопки для переключения между заказами и запчастями для обслуживания -->
+        <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50,0,0,0">
+            <Button x:Name="ButtonZakazi" Content="Заказы" Width="150" Height="30" Click="ButtonZakazi_Click"/>
+            <Button x:Name="ButtonZapchastiDlaObslygivania" Content="Запчасти для обслуживания" Width="200" Height="30" Margin="400,0,0,0" Click="ButtonZapchastiDlaObslygivania_Click"/>
+        </StackPanel>
+
+        <!-- Поиск и фильтрация -->
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0">
+            <TextBlock x:Name="TextBlockSort" Text="По количеству:" VerticalAlignment="Center" Margin="0,0,10,0" Visibility="Collapsed"/>
+            <ComboBox x:Name="SortComboBox" Width="150" Height="25" VerticalAlignment="Center" SelectionChanged="SortComboBox_SelectionChanged" Visibility="Collapsed">
+                <ComboBoxItem Content="По возрастанию"/>
+                <ComboBoxItem Content="По убыванию"/>
+            </ComboBox>
+            <TextBlock Text="Поиск:" VerticalAlignment="Center" Margin="30,0,10,0"/>
+            <TextBox x:Name="SearchTextBox" Width="150" Height="25" VerticalAlignment="Center" Margin="0,0,10,0" TextChanged="SearchTextBox_TextChanged"/>
+            <Button x:Name="ClearSearchButton" Content="Отмена" Width="120" Height="25" VerticalAlignment="Center" Click="ClearSearchButton_Click"/>
+        </StackPanel>
+
+        <!-- Текстовые блоки для отображения текущего раздела -->
+        <TextBlock x:Name="TextBlockZakazi" Grid.Row="1" Text="Заказы" FontSize="18" Height="auto" Width="auto" FontWeight="Bold" Foreground="#333333" Margin="20,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Visibility="Visible"/>
+        <TextBlock x:Name="TextBlockZapchastiDlaObslygivania" Grid.Row="1" Text="Запчасти для обслуживания" FontSize="18" Height="auto" Width="auto" FontWeight="Bold" Foreground="#333333" Margin="20,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Visibility="Collapsed"/>
+
+        <!-- Таблица заказов -->
+        <ListBox x:Name="LstBoxZakazi" Grid.Row="2" VerticalAlignment="Top" Margin="10,5,10,0" Height="450" Visibility="Visible">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Gray" BorderThickness="2" Padding="10" Margin="5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                         
+
+                            <!-- Информация о заказе -->
+                            <StackPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,10,0" Width="200">
+                                <TextBlock Text="{Binding b_Zapchasti.Nazvanie, StringFormat='Запчасть: {0}'}" TextWrapping="Wrap" MaxWidth="300" TextAlignment="Justify"/>
+                                <TextBlock Text="{Binding Kolichestvo, StringFormat='Количество: {0}'}" TextWrapping="Wrap" MaxWidth="300" TextAlignment="Justify"/>
+                                <TextBlock Text="{Binding Data_zakaza, StringFormat='Дата заказа: {0:dd.MM.yyyy}'}" TextWrapping="Wrap" MaxWidth="300" TextAlignment="Justify"/>
+                                <TextBlock Text="{Binding Status_zakaza, StringFormat='Статус: {0}'}" TextWrapping="Wrap" MaxWidth="300" TextAlignment="Justify"/>
+                                <TextBlock Text="Сотрудник:" TextWrapping="Wrap" MaxWidth="300" TextAlignment="Justify"/>
+                                <TextBlock>
+                                    <Run Text="{Binding b_Sotrudniki.Familia}"/>
+                                    <Run Text=" "/>
+                                    <Run Text="{Binding b_Sotrudniki.Name}"/>
+                                    <Run Text=" "/>
+                                    <Run Text="{Binding b_Sotrudniki.Otchestvo}"/>
+                                </TextBlock>
+                            </StackPanel>
+
+                            <!-- Кнопка редактирования -->
+                            <Button x:Name="ButtonEdit" Click="ButtonEdit_Click" Cursor="Hand" Grid.Column="2" Content="Редактировать" Width="130" Height="30" HorizontalAlignment="Right" Background="#007ACC" Foreground="White" Margin="10,0,10,0"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <!-- Таблица запчастей для обслуживания -->
+        <ListBox x:Name="LstBoxZapchastiDlaObslygivania" Grid.Row="2" VerticalAlignment="Top" Margin="10,5,10,0" Height="450" Visibility="Collapsed">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Gray" BorderThickness="2" Padding="10" Margin="5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+
+                            <!-- Информация о запчасти -->
+                            <StackPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,10,0" Width="200">
+                                <TextBlock Text="{Binding b_Zapchasti.Nazvanie, StringFormat='Запчасть: {0}'}" TextWrapping="Wrap" MaxWidth="300" TextAlignment="Justify"/>
+                                <TextBlock Text="{Binding b_Tehnicheskoe_obsl.Data_obslygivania, StringFormat='Дата обслуживания: {0:dd.MM.yyyy}'}" TextWrapping="Wrap" MaxWidth="300" TextAlignment="Justify"/>
+                                <TextBlock Text="{Binding b_Tehnicheskoe_obsl.b_Samolet.Nazvanie, StringFormat='Самолет: {0}'}" TextWrapping="Wrap" MaxWidth="300" TextAlignment="Justify"/>
+                                <TextBlock Text="{Binding b_Tehnicheskoe_obsl.b_Tip_obslygivania.Nazvanie, StringFormat='Тип обслуживания: {0}'}" TextWrapping="Wrap" MaxWidth="300" TextAlignment="Justify"/>
+                                <TextBlock Text="Сотрудник:" TextWrapping="Wrap" MaxWidth="300" TextAlignment="Justify"/>
+                                <TextBlock>
+                                    <Run Text="{Binding b_Tehnicheskoe_obsl.b_Sotrudniki.Familia}"/>
+                                    <Run Text=" "/>
+                                    <Run Text="{Binding b_Tehnicheskoe_obsl.b_Sotrudniki.Name}"/>
+                                    <Run Text=" "/>
+                                    <Run Text="{Binding b_Tehnicheskoe_obsl.b_Sotrudniki.Otchestvo}"/>
+                                </TextBlock>
+                            </StackPanel>
+
+                            <!-- Кнопка заказа -->
+                            <Button x:Name="ButtonZakaz" Click="ButtonZakaz_Click" Cursor="Hand" Grid.Column="2" Content="Заказать" Width="130" Height="30" HorizontalAlignment="Right" Background="#007ACC" Foreground="White" Margin="10,0,10,0"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <!-- Кнопка добавления заказа -->
+        <Button x:Name="ButtonDobavit" Click="ButtonDobavit_Click" Cursor="Hand" Grid.Row="3" Content="Добавить" Width="130" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Background="#007ACC" Foreground="White" Margin="498,0,0,0" Visibility="Visible"/>
+        <Button x:Name="ButtonVihod" Grid.Row="3" Click="ButtonVihod_Click"  Content="Выйти" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Width="130" Margin="33,0,0,0" Height="30" Cursor="Hand"/>
+        <Button x:Name="ButtonUdalit" Click="ButtonUdalit_Click" Cursor="Hand" Grid.Row="3" Content="Удалить" Width="130" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Background="#007ACC" Margin="700,0,0,0" Foreground="White" Visibility="Visible"/>
+    </Grid>
+</Window>

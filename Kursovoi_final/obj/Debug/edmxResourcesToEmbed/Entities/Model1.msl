@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище user31_dbModelContainer" CdmEntityContainer="user31_dbEntities">
+    <EntitySetMapping Name="b_Proizvoditeli">
+      <EntityTypeMapping TypeName="user31_dbModel.b_Proizvoditeli">
+        <MappingFragment StoreEntitySet="b_Proizvoditeli">
+          <ScalarProperty Name="ID_proizvoditela" ColumnName="ID_proizvoditela" />
+          <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="b_role">
+      <EntityTypeMapping TypeName="user31_dbModel.b_role">
+        <MappingFragment StoreEntitySet="b_role">
+          <ScalarProperty Name="ID_role" ColumnName="ID_role" />
+          <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="b_Samolet">
+      <EntityTypeMapping TypeName="user31_dbModel.b_Samolet">
+        <MappingFragment StoreEntitySet="b_Samolet">
+          <ScalarProperty Name="ID_samoleta" ColumnName="ID_samoleta" />
+          <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="God_proizvodstva" ColumnName="God_proizvodstva" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="b_Skladi">
+      <EntityTypeMapping TypeName="user31_dbModel.b_Skladi">
+        <MappingFragment StoreEntitySet="b_Skladi">
+          <ScalarProperty Name="ID_sklada" ColumnName="ID_sklada" />
+          <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="b_Sotrudniki">
+      <EntityTypeMapping TypeName="user31_dbModel.b_Sotrudniki">
+        <MappingFragment StoreEntitySet="b_Sotrudniki">
+          <ScalarProperty Name="ID_sotrudnika" ColumnName="ID_sotrudnika" />
+          <ScalarProperty Name="Familia" ColumnName="Familia" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Otchestvo" ColumnName="Otchestvo" />
+          <ScalarProperty Name="ID_role" ColumnName="ID_role" />
+          <ScalarProperty Name="Dolgnost" ColumnName="Dolgnost" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="b_Tehnicheskoe_obsl">
+      <EntityTypeMapping TypeName="user31_dbModel.b_Tehnicheskoe_obsl">
+        <MappingFragment StoreEntitySet="b_Tehnicheskoe_obsl">
+          <ScalarProperty Name="ID_tehnicheskoe_obsl" ColumnName="ID_tehnicheskoe_obsl" />
+          <ScalarProperty Name="ID_samoleta" ColumnName="ID_samoleta" />
+          <ScalarProperty Name="Data_obslygivania" ColumnName="Data_obslygivania" />
+          <ScalarProperty Name="ID_tipa_obslygivania" ColumnName="ID_tipa_obslygivania" />
+          <ScalarProperty Name="Opisanie" ColumnName="Opisanie" />
+          <ScalarProperty Name="ID_sotrudnika" ColumnName="ID_sotrudnika" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="b_Tip_obslygivania">
+      <EntityTypeMapping TypeName="user31_dbModel.b_Tip_obslygivania">
+        <MappingFragment StoreEntitySet="b_Tip_obslygivania">
+          <ScalarProperty Name="ID_tipa_obslygivania" ColumnName="ID_tipa_obslygivania" />
+          <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="b_Zakazi">
+      <EntityTypeMapping TypeName="user31_dbModel.b_Zakazi">
+        <MappingFragment StoreEntitySet="b_Zakazi">
+          <ScalarProperty Name="ID_zakaza" ColumnName="ID_zakaza" />
+          <ScalarProperty Name="ID_zapchasti" ColumnName="ID_zapchasti" />
+          <ScalarProperty Name="Kolichestvo" ColumnName="Kolichestvo" />
+          <ScalarProperty Name="Data_zakaza" ColumnName="Data_zakaza" />
+          <ScalarProperty Name="Status_zakaza" ColumnName="Status_zakaza" />
+          <ScalarProperty Name="ID_sotrudnika" ColumnName="ID_sotrudnika" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="b_Zapchasti">
+      <EntityTypeMapping TypeName="user31_dbModel.b_Zapchasti">
+        <MappingFragment StoreEntitySet="b_Zapchasti">
+          <ScalarProperty Name="ID_zapchasti" ColumnName="ID_zapchasti" />
+          <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
+          <ScalarProperty Name="ID_proizvoditela" ColumnName="ID_proizvoditela" />
+          <ScalarProperty Name="Cena" ColumnName="Cena" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="b_Zapchasti_dla_obslygivania">
+      <EntityTypeMapping TypeName="user31_dbModel.b_Zapchasti_dla_obslygivania">
+        <MappingFragment StoreEntitySet="b_Zapchasti_dla_obslygivania">
+          <ScalarProperty Name="ID_Zapchati_dla_obsl" ColumnName="ID_Zapchati_dla_obsl" />
+          <ScalarProperty Name="ID_tehnicheskoe_obsl" ColumnName="ID_tehnicheskoe_obsl" />
+          <ScalarProperty Name="ID_zapchasti" ColumnName="ID_zapchasti" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="b_Zapchasti_na_sklade">
+      <EntityTypeMapping TypeName="user31_dbModel.b_Zapchasti_na_sklade">
+        <MappingFragment StoreEntitySet="b_Zapchasti_na_sklade">
+          <ScalarProperty Name="ID_zapchasti_na_sklade" ColumnName="ID_zapchasti_na_sklade" />
+          <ScalarProperty Name="ID_sklada" ColumnName="ID_sklada" />
+          <ScalarProperty Name="ID_zapchasti" ColumnName="ID_zapchasti" />
+          <ScalarProperty Name="Kolichestvo" ColumnName="Kolichestvo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

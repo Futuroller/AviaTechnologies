@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="47ea2ca445f4458a8bb48088bafaa377" Name="Diagram1">
+        <EntityTypeShape EntityType="user31_dbModel.b_Proizvoditeli" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="user31_dbModel.b_role" Width="1.5" PointX="1.5" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="user31_dbModel.b_Samolet" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="user31_dbModel.b_Skladi" Width="1.5" PointX="6" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="user31_dbModel.b_Sotrudniki" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="user31_dbModel.b_Tehnicheskoe_obsl" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="user31_dbModel.b_Tip_obslygivania" Width="1.5" PointX="0.75" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="user31_dbModel.b_Zakazi" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="user31_dbModel.b_Zapchasti" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="user31_dbModel.b_Zapchasti_dla_obslygivania" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="user31_dbModel.b_Zapchasti_na_sklade" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
+        <AssociationConnector Association="user31_dbModel.FK__b_Zapchas__ID_pr__5D41AAD6" ManuallyRouted="false" />
+        <AssociationConnector Association="user31_dbModel.FK__b_Sotrudn__ID_ro__53B8409C" ManuallyRouted="false" />
+        <AssociationConnector Association="user31_dbModel.FK__b_Tehnich__ID_sa__5694AD47" ManuallyRouted="false" />
+        <AssociationConnector Association="user31_dbModel.FK__b_Zapchas__ID_sk__65D6F0D7" ManuallyRouted="false" />
+        <AssociationConnector Association="user31_dbModel.FK__b_Tehnich__ID_so__587CF5B9" ManuallyRouted="false" />
+        <AssociationConnector Association="user31_dbModel.FK__b_Zakazi__ID_sot__6A9BA5F4" ManuallyRouted="false" />
+        <AssociationConnector Association="user31_dbModel.FK__b_Tehnich__ID_ti__5788D180" ManuallyRouted="false" />
+        <AssociationConnector Association="user31_dbModel.FK__b_Zapchas__ID_te__601E1781" ManuallyRouted="false" />
+        <AssociationConnector Association="user31_dbModel.FK__b_Zakazi__ID_zap__69A781BB" ManuallyRouted="false" />
+        <AssociationConnector Association="user31_dbModel.FK__b_Zapchas__ID_za__61123BBA" ManuallyRouted="false" />
+        <AssociationConnector Association="user31_dbModel.FK__b_Zapchas__ID_za__66CB1510" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

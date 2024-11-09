@@ -1,0 +1,47 @@
+﻿<Window x:Class="Kursovoi_final.PartsRequestWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kursovoi_final"
+        mc:Ignorable="d"
+        Title="Заявка на покупку запчастей" Height="539" Width="500" FontFamily="Century Gothic" FontSize="14" WindowStartupLocation="CenterScreen" Background="#FFFBF8F5" Cursor="Hand">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+
+        <!-- Шапка -->
+        <StackPanel Orientation="Horizontal" Background="#007ACC" HorizontalAlignment="Stretch">
+            <TextBlock Text="АвиаТехнологии" VerticalAlignment="Center" Foreground="White" FontSize="18" HorizontalAlignment="Center" Margin="150,10,10,10"/>
+        </StackPanel>
+
+        <Image Source="/airbus.png" Width="50" HorizontalAlignment="Right" Height="50" Margin="10,10,10,10"/>
+
+        <!-- Заголовок -->
+       
+                <TextBlock x:Name="TextBlockZagolovok" Text="Заявка на покупку запчастей" Grid.Row="1" TextAlignment="Center" FontSize="20" HorizontalAlignment="Center" Height="26" Width="349" Margin="0,13,0,0"/>
+           
+
+        <!-- Список выбранных товаров -->
+        <ListBox x:Name="SelectedPartsListBox" Grid.Row="2" Margin="15,43,15,31">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Nazvanie}" Margin="5"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <!-- Выбор обслуживания -->
+        <TextBlock Text="Выберите обслуживание:" VerticalAlignment="Center" Margin="20,0,0,0" Grid.Row="3"/>
+        <ComboBox x:Name="MaintenanceComboBox" Width="350" Height="30" VerticalAlignment="Center" Margin="20,0,0,0" Grid.Row="4" DisplayMemberPath="Opisanie"/>
+
+        <!-- Кнопка для создания заявки -->
+        <Button x:Name="CreateRequestButton" Grid.Row="5" Content="Создать заявку" Width="150" Height="30"  VerticalAlignment="Center" HorizontalAlignment="Center" Click="CreateRequestButton_Click" Background="#007ACC" Foreground="White"/>
+    </Grid>
+</Window>

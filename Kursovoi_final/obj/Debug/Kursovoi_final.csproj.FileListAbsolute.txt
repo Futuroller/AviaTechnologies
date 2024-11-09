@@ -1,0 +1,72 @@
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\bin\Debug\Kursovoi_final.exe.config
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\bin\Debug\Kursovoi_final.exe
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\bin\Debug\Kursovoi_final.pdb
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\bin\Debug\EntityFramework.dll
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\bin\Debug\EntityFramework.SqlServer.dll
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\bin\Debug\EntityFramework.xml
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\bin\Debug\EntityFramework.SqlServer.xml
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\bin\Debug\ru\EntityFramework.resources.dll
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\Kursovoi_final.csproj.AssemblyReference.cache
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\Kursovoi_final.csproj.SuggestedBindingRedirects.cache
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\Admin.g.cs
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\MainWindow.g.cs
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\Manager.g.cs
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\Mechanic.g.cs
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\App.g.cs
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\Kursovoi_final_Content.g.cs
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\Kursovoi_final_MarkupCompile.cache
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\Kursovoi_final_MarkupCompile.lref
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\Admin.baml
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\MainWindow.baml
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\Manager.baml
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\Mechanic.baml
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\Kursovoi_final.g.resources
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\Kursovoi_final.Properties.Resources.resources
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\Kursovoi_final.csproj.GenerateResource.cache
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\Kursovoi_final.csproj.CoreCompileInputs.cache
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\Kursovoi_final.csproj.CopyComplete
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\Kursovoi_final.exe
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\Kursovoi_final.pdb
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\AddSotrudnik.g.cs
+F:\Kursovoi_final\Kursovoi_final\obj\Debug\Kursovoi_final.csproj.AssemblyReference.cache
+F:\Kursovoi_final\Kursovoi_final\obj\Debug\Kursovoi_final.csproj.SuggestedBindingRedirects.cache
+F:\Kursovoi_final\Kursovoi_final\obj\Debug\AddSotrudnik.g.cs
+F:\Kursovoi_final\Kursovoi_final\obj\Debug\Admin.g.cs
+F:\Kursovoi_final\Kursovoi_final\obj\Debug\MainWindow.g.cs
+F:\Kursovoi_final\Kursovoi_final\obj\Debug\Manager.g.cs
+F:\Kursovoi_final\Kursovoi_final\obj\Debug\Mechanic.g.cs
+F:\Kursovoi_final\Kursovoi_final\obj\Debug\App.g.cs
+F:\Kursovoi_final\Kursovoi_final\obj\Debug\Kursovoi_final_Content.g.cs
+F:\Kursovoi_final\Kursovoi_final\obj\Debug\Kursovoi_final_MarkupCompile.cache
+F:\Kursovoi_final\Kursovoi_final\obj\Debug\Kursovoi_final_MarkupCompile.lref
+F:\Kursovoi_final\Kursovoi_final\obj\Debug\Kursovoi_final.exe
+F:\Kursovoi_final\Kursovoi_final\obj\Debug\Kursovoi_final.pdb
+F:\Kursovoi_final\Kursovoi_final\bin\Debug\Kursovoi_final.exe.config
+F:\Kursovoi_final\Kursovoi_final\bin\Debug\Kursovoi_final.exe
+F:\Kursovoi_final\Kursovoi_final\bin\Debug\Kursovoi_final.pdb
+F:\Kursovoi_final\Kursovoi_final\bin\Debug\EntityFramework.dll
+F:\Kursovoi_final\Kursovoi_final\bin\Debug\EntityFramework.SqlServer.dll
+F:\Kursovoi_final\Kursovoi_final\bin\Debug\EntityFramework.xml
+F:\Kursovoi_final\Kursovoi_final\bin\Debug\EntityFramework.SqlServer.xml
+F:\Kursovoi_final\Kursovoi_final\bin\Debug\ru\EntityFramework.resources.dll
+F:\Kursovoi_final\Kursovoi_final\obj\Debug\AddSotrudnik.baml
+F:\Kursovoi_final\Kursovoi_final\obj\Debug\Admin.baml
+F:\Kursovoi_final\Kursovoi_final\obj\Debug\MainWindow.baml
+F:\Kursovoi_final\Kursovoi_final\obj\Debug\Manager.baml
+F:\Kursovoi_final\Kursovoi_final\obj\Debug\Mechanic.baml
+F:\Kursovoi_final\Kursovoi_final\obj\Debug\Kursovoi_final.g.resources
+F:\Kursovoi_final\Kursovoi_final\obj\Debug\Kursovoi_final.Properties.Resources.resources
+F:\Kursovoi_final\Kursovoi_final\obj\Debug\Kursovoi_final.csproj.GenerateResource.cache
+F:\Kursovoi_final\Kursovoi_final\obj\Debug\Kursovoi_final.csproj.CoreCompileInputs.cache
+F:\Kursovoi_final\Kursovoi_final\obj\Debug\Kursovoi_final.csproj.CopyComplete
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\AddSotrudnik.baml
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\AddZakaz.g.cs
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\AddZakaz.baml
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\AddZakazObsl.g.cs
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\AddZakazObsl.baml
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\PartsRequestWindow.g.cs
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\PartsRequestWindow.baml
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\AddEditMaintenanceWindow.g.cs
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\MaintenanceManagement.g.cs
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\AddEditMaintenanceWindow.baml
+E:\МДК 05.02\Курсовой\Kursovoi_final\Kursovoi_final\obj\Debug\MaintenanceManagement.baml

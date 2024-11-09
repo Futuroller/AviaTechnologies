@@ -1,0 +1,753 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище user31_dbModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="b_Proizvoditeli">
+          <Key>
+            <PropertyRef Name="ID_proizvoditela" />
+          </Key>
+          <Property Name="ID_proizvoditela" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazvanie" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="b_role">
+          <Key>
+            <PropertyRef Name="ID_role" />
+          </Key>
+          <Property Name="ID_role" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazvanie" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="b_Samolet">
+          <Key>
+            <PropertyRef Name="ID_samoleta" />
+          </Key>
+          <Property Name="ID_samoleta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazvanie" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="50" />
+          <Property Name="God_proizvodstva" Type="int" />
+        </EntityType>
+        <EntityType Name="b_Skladi">
+          <Key>
+            <PropertyRef Name="ID_sklada" />
+          </Key>
+          <Property Name="ID_sklada" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazvanie" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Adress" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="b_Sotrudniki">
+          <Key>
+            <PropertyRef Name="ID_sotrudnika" />
+          </Key>
+          <Property Name="ID_sotrudnika" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Familia" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Otchestvo" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID_role" Type="int" Nullable="false" />
+          <Property Name="Dolgnost" Type="nvarchar" MaxLength="50" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="b_Tehnicheskoe_obsl">
+          <Key>
+            <PropertyRef Name="ID_tehnicheskoe_obsl" />
+          </Key>
+          <Property Name="ID_tehnicheskoe_obsl" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_samoleta" Type="int" Nullable="false" />
+          <Property Name="Data_obslygivania" Type="date" Nullable="false" />
+          <Property Name="ID_tipa_obslygivania" Type="int" Nullable="false" />
+          <Property Name="Opisanie" Type="nvarchar(max)" />
+          <Property Name="ID_sotrudnika" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="b_Tip_obslygivania">
+          <Key>
+            <PropertyRef Name="ID_tipa_obslygivania" />
+          </Key>
+          <Property Name="ID_tipa_obslygivania" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazvanie" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="b_Zakazi">
+          <Key>
+            <PropertyRef Name="ID_zakaza" />
+          </Key>
+          <Property Name="ID_zakaza" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_zapchasti" Type="int" Nullable="false" />
+          <Property Name="Kolichestvo" Type="int" Nullable="false" />
+          <Property Name="Data_zakaza" Type="date" Nullable="false" />
+          <Property Name="Status_zakaza" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_sotrudnika" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="b_Zapchasti">
+          <Key>
+            <PropertyRef Name="ID_zapchasti" />
+          </Key>
+          <Property Name="ID_zapchasti" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazvanie" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ID_proizvoditela" Type="int" Nullable="false" />
+          <Property Name="Cena" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="b_Zapchasti_dla_obslygivania">
+          <Key>
+            <PropertyRef Name="ID_Zapchati_dla_obsl" />
+          </Key>
+          <Property Name="ID_Zapchati_dla_obsl" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_tehnicheskoe_obsl" Type="int" Nullable="false" />
+          <Property Name="ID_zapchasti" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="b_Zapchasti_na_sklade">
+          <Key>
+            <PropertyRef Name="ID_zapchasti_na_sklade" />
+          </Key>
+          <Property Name="ID_zapchasti_na_sklade" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_sklada" Type="int" Nullable="false" />
+          <Property Name="ID_zapchasti" Type="int" Nullable="false" />
+          <Property Name="Kolichestvo" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__b_Sotrudn__ID_ro__53B8409C">
+          <End Role="b_role" Type="Self.b_role" Multiplicity="1" />
+          <End Role="b_Sotrudniki" Type="Self.b_Sotrudniki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="b_role">
+              <PropertyRef Name="ID_role" />
+            </Principal>
+            <Dependent Role="b_Sotrudniki">
+              <PropertyRef Name="ID_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__b_Tehnich__ID_sa__5694AD47">
+          <End Role="b_Samolet" Type="Self.b_Samolet" Multiplicity="1" />
+          <End Role="b_Tehnicheskoe_obsl" Type="Self.b_Tehnicheskoe_obsl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="b_Samolet">
+              <PropertyRef Name="ID_samoleta" />
+            </Principal>
+            <Dependent Role="b_Tehnicheskoe_obsl">
+              <PropertyRef Name="ID_samoleta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__b_Tehnich__ID_so__587CF5B9">
+          <End Role="b_Sotrudniki" Type="Self.b_Sotrudniki" Multiplicity="1" />
+          <End Role="b_Tehnicheskoe_obsl" Type="Self.b_Tehnicheskoe_obsl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="b_Sotrudniki">
+              <PropertyRef Name="ID_sotrudnika" />
+            </Principal>
+            <Dependent Role="b_Tehnicheskoe_obsl">
+              <PropertyRef Name="ID_sotrudnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__b_Tehnich__ID_ti__5788D180">
+          <End Role="b_Tip_obslygivania" Type="Self.b_Tip_obslygivania" Multiplicity="1" />
+          <End Role="b_Tehnicheskoe_obsl" Type="Self.b_Tehnicheskoe_obsl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="b_Tip_obslygivania">
+              <PropertyRef Name="ID_tipa_obslygivania" />
+            </Principal>
+            <Dependent Role="b_Tehnicheskoe_obsl">
+              <PropertyRef Name="ID_tipa_obslygivania" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__b_Zakazi__ID_sot__6A9BA5F4">
+          <End Role="b_Sotrudniki" Type="Self.b_Sotrudniki" Multiplicity="1" />
+          <End Role="b_Zakazi" Type="Self.b_Zakazi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="b_Sotrudniki">
+              <PropertyRef Name="ID_sotrudnika" />
+            </Principal>
+            <Dependent Role="b_Zakazi">
+              <PropertyRef Name="ID_sotrudnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__b_Zakazi__ID_zap__69A781BB">
+          <End Role="b_Zapchasti" Type="Self.b_Zapchasti" Multiplicity="1" />
+          <End Role="b_Zakazi" Type="Self.b_Zakazi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="b_Zapchasti">
+              <PropertyRef Name="ID_zapchasti" />
+            </Principal>
+            <Dependent Role="b_Zakazi">
+              <PropertyRef Name="ID_zapchasti" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__b_Zapchas__ID_pr__5D41AAD6">
+          <End Role="b_Proizvoditeli" Type="Self.b_Proizvoditeli" Multiplicity="1" />
+          <End Role="b_Zapchasti" Type="Self.b_Zapchasti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="b_Proizvoditeli">
+              <PropertyRef Name="ID_proizvoditela" />
+            </Principal>
+            <Dependent Role="b_Zapchasti">
+              <PropertyRef Name="ID_proizvoditela" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__b_Zapchas__ID_sk__65D6F0D7">
+          <End Role="b_Skladi" Type="Self.b_Skladi" Multiplicity="1" />
+          <End Role="b_Zapchasti_na_sklade" Type="Self.b_Zapchasti_na_sklade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="b_Skladi">
+              <PropertyRef Name="ID_sklada" />
+            </Principal>
+            <Dependent Role="b_Zapchasti_na_sklade">
+              <PropertyRef Name="ID_sklada" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__b_Zapchas__ID_te__601E1781">
+          <End Role="b_Tehnicheskoe_obsl" Type="Self.b_Tehnicheskoe_obsl" Multiplicity="1" />
+          <End Role="b_Zapchasti_dla_obslygivania" Type="Self.b_Zapchasti_dla_obslygivania" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="b_Tehnicheskoe_obsl">
+              <PropertyRef Name="ID_tehnicheskoe_obsl" />
+            </Principal>
+            <Dependent Role="b_Zapchasti_dla_obslygivania">
+              <PropertyRef Name="ID_tehnicheskoe_obsl" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__b_Zapchas__ID_za__61123BBA">
+          <End Role="b_Zapchasti" Type="Self.b_Zapchasti" Multiplicity="1" />
+          <End Role="b_Zapchasti_dla_obslygivania" Type="Self.b_Zapchasti_dla_obslygivania" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="b_Zapchasti">
+              <PropertyRef Name="ID_zapchasti" />
+            </Principal>
+            <Dependent Role="b_Zapchasti_dla_obslygivania">
+              <PropertyRef Name="ID_zapchasti" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__b_Zapchas__ID_za__66CB1510">
+          <End Role="b_Zapchasti" Type="Self.b_Zapchasti" Multiplicity="1" />
+          <End Role="b_Zapchasti_na_sklade" Type="Self.b_Zapchasti_na_sklade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="b_Zapchasti">
+              <PropertyRef Name="ID_zapchasti" />
+            </Principal>
+            <Dependent Role="b_Zapchasti_na_sklade">
+              <PropertyRef Name="ID_zapchasti" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище user31_dbModelContainer">
+          <EntitySet Name="b_Proizvoditeli" EntityType="Self.b_Proizvoditeli" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="b_role" EntityType="Self.b_role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="b_Samolet" EntityType="Self.b_Samolet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="b_Skladi" EntityType="Self.b_Skladi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="b_Sotrudniki" EntityType="Self.b_Sotrudniki" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="b_Tehnicheskoe_obsl" EntityType="Self.b_Tehnicheskoe_obsl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="b_Tip_obslygivania" EntityType="Self.b_Tip_obslygivania" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="b_Zakazi" EntityType="Self.b_Zakazi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="b_Zapchasti" EntityType="Self.b_Zapchasti" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="b_Zapchasti_dla_obslygivania" EntityType="Self.b_Zapchasti_dla_obslygivania" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="b_Zapchasti_na_sklade" EntityType="Self.b_Zapchasti_na_sklade" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__b_Sotrudn__ID_ro__53B8409C" Association="Self.FK__b_Sotrudn__ID_ro__53B8409C">
+            <End Role="b_role" EntitySet="b_role" />
+            <End Role="b_Sotrudniki" EntitySet="b_Sotrudniki" />
+          </AssociationSet>
+          <AssociationSet Name="FK__b_Tehnich__ID_sa__5694AD47" Association="Self.FK__b_Tehnich__ID_sa__5694AD47">
+            <End Role="b_Samolet" EntitySet="b_Samolet" />
+            <End Role="b_Tehnicheskoe_obsl" EntitySet="b_Tehnicheskoe_obsl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__b_Tehnich__ID_so__587CF5B9" Association="Self.FK__b_Tehnich__ID_so__587CF5B9">
+            <End Role="b_Sotrudniki" EntitySet="b_Sotrudniki" />
+            <End Role="b_Tehnicheskoe_obsl" EntitySet="b_Tehnicheskoe_obsl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__b_Tehnich__ID_ti__5788D180" Association="Self.FK__b_Tehnich__ID_ti__5788D180">
+            <End Role="b_Tip_obslygivania" EntitySet="b_Tip_obslygivania" />
+            <End Role="b_Tehnicheskoe_obsl" EntitySet="b_Tehnicheskoe_obsl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__b_Zakazi__ID_sot__6A9BA5F4" Association="Self.FK__b_Zakazi__ID_sot__6A9BA5F4">
+            <End Role="b_Sotrudniki" EntitySet="b_Sotrudniki" />
+            <End Role="b_Zakazi" EntitySet="b_Zakazi" />
+          </AssociationSet>
+          <AssociationSet Name="FK__b_Zakazi__ID_zap__69A781BB" Association="Self.FK__b_Zakazi__ID_zap__69A781BB">
+            <End Role="b_Zapchasti" EntitySet="b_Zapchasti" />
+            <End Role="b_Zakazi" EntitySet="b_Zakazi" />
+          </AssociationSet>
+          <AssociationSet Name="FK__b_Zapchas__ID_pr__5D41AAD6" Association="Self.FK__b_Zapchas__ID_pr__5D41AAD6">
+            <End Role="b_Proizvoditeli" EntitySet="b_Proizvoditeli" />
+            <End Role="b_Zapchasti" EntitySet="b_Zapchasti" />
+          </AssociationSet>
+          <AssociationSet Name="FK__b_Zapchas__ID_sk__65D6F0D7" Association="Self.FK__b_Zapchas__ID_sk__65D6F0D7">
+            <End Role="b_Skladi" EntitySet="b_Skladi" />
+            <End Role="b_Zapchasti_na_sklade" EntitySet="b_Zapchasti_na_sklade" />
+          </AssociationSet>
+          <AssociationSet Name="FK__b_Zapchas__ID_te__601E1781" Association="Self.FK__b_Zapchas__ID_te__601E1781">
+            <End Role="b_Tehnicheskoe_obsl" EntitySet="b_Tehnicheskoe_obsl" />
+            <End Role="b_Zapchasti_dla_obslygivania" EntitySet="b_Zapchasti_dla_obslygivania" />
+          </AssociationSet>
+          <AssociationSet Name="FK__b_Zapchas__ID_za__61123BBA" Association="Self.FK__b_Zapchas__ID_za__61123BBA">
+            <End Role="b_Zapchasti" EntitySet="b_Zapchasti" />
+            <End Role="b_Zapchasti_dla_obslygivania" EntitySet="b_Zapchasti_dla_obslygivania" />
+          </AssociationSet>
+          <AssociationSet Name="FK__b_Zapchas__ID_za__66CB1510" Association="Self.FK__b_Zapchas__ID_za__66CB1510">
+            <End Role="b_Zapchasti" EntitySet="b_Zapchasti" />
+            <End Role="b_Zapchasti_na_sklade" EntitySet="b_Zapchasti_na_sklade" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="user31_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="b_Proizvoditeli">
+          <Key>
+            <PropertyRef Name="ID_proizvoditela" />
+          </Key>
+          <Property Name="ID_proizvoditela" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazvanie" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="b_Zapchasti" Relationship="Self.FK__b_Zapchas__ID_pr__5D41AAD6" FromRole="b_Proizvoditeli" ToRole="b_Zapchasti" />
+        </EntityType>
+        <EntityType Name="b_role">
+          <Key>
+            <PropertyRef Name="ID_role" />
+          </Key>
+          <Property Name="ID_role" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazvanie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="b_Sotrudniki" Relationship="Self.FK__b_Sotrudn__ID_ro__53B8409C" FromRole="b_role" ToRole="b_Sotrudniki" />
+        </EntityType>
+        <EntityType Name="b_Samolet">
+          <Key>
+            <PropertyRef Name="ID_samoleta" />
+          </Key>
+          <Property Name="ID_samoleta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazvanie" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="God_proizvodstva" Type="Int32" />
+          <NavigationProperty Name="b_Tehnicheskoe_obsl" Relationship="Self.FK__b_Tehnich__ID_sa__5694AD47" FromRole="b_Samolet" ToRole="b_Tehnicheskoe_obsl" />
+        </EntityType>
+        <EntityType Name="b_Skladi">
+          <Key>
+            <PropertyRef Name="ID_sklada" />
+          </Key>
+          <Property Name="ID_sklada" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazvanie" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="b_Zapchasti_na_sklade" Relationship="Self.FK__b_Zapchas__ID_sk__65D6F0D7" FromRole="b_Skladi" ToRole="b_Zapchasti_na_sklade" />
+        </EntityType>
+        <EntityType Name="b_Sotrudniki">
+          <Key>
+            <PropertyRef Name="ID_sotrudnika" />
+          </Key>
+          <Property Name="ID_sotrudnika" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Familia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Otchestvo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID_role" Type="Int32" Nullable="false" />
+          <Property Name="Dolgnost" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="b_role" Relationship="Self.FK__b_Sotrudn__ID_ro__53B8409C" FromRole="b_Sotrudniki" ToRole="b_role" />
+          <NavigationProperty Name="b_Tehnicheskoe_obsl" Relationship="Self.FK__b_Tehnich__ID_so__587CF5B9" FromRole="b_Sotrudniki" ToRole="b_Tehnicheskoe_obsl" />
+          <NavigationProperty Name="b_Zakazi" Relationship="Self.FK__b_Zakazi__ID_sot__6A9BA5F4" FromRole="b_Sotrudniki" ToRole="b_Zakazi" />
+        </EntityType>
+        <EntityType Name="b_Tehnicheskoe_obsl">
+          <Key>
+            <PropertyRef Name="ID_tehnicheskoe_obsl" />
+          </Key>
+          <Property Name="ID_tehnicheskoe_obsl" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_samoleta" Type="Int32" Nullable="false" />
+          <Property Name="Data_obslygivania" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ID_tipa_obslygivania" Type="Int32" Nullable="false" />
+          <Property Name="Opisanie" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ID_sotrudnika" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="b_Samolet" Relationship="Self.FK__b_Tehnich__ID_sa__5694AD47" FromRole="b_Tehnicheskoe_obsl" ToRole="b_Samolet" />
+          <NavigationProperty Name="b_Sotrudniki" Relationship="Self.FK__b_Tehnich__ID_so__587CF5B9" FromRole="b_Tehnicheskoe_obsl" ToRole="b_Sotrudniki" />
+          <NavigationProperty Name="b_Tip_obslygivania" Relationship="Self.FK__b_Tehnich__ID_ti__5788D180" FromRole="b_Tehnicheskoe_obsl" ToRole="b_Tip_obslygivania" />
+          <NavigationProperty Name="b_Zapchasti_dla_obslygivania" Relationship="Self.FK__b_Zapchas__ID_te__601E1781" FromRole="b_Tehnicheskoe_obsl" ToRole="b_Zapchasti_dla_obslygivania" />
+        </EntityType>
+        <EntityType Name="b_Tip_obslygivania">
+          <Key>
+            <PropertyRef Name="ID_tipa_obslygivania" />
+          </Key>
+          <Property Name="ID_tipa_obslygivania" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazvanie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="b_Tehnicheskoe_obsl" Relationship="Self.FK__b_Tehnich__ID_ti__5788D180" FromRole="b_Tip_obslygivania" ToRole="b_Tehnicheskoe_obsl" />
+        </EntityType>
+        <EntityType Name="b_Zakazi">
+          <Key>
+            <PropertyRef Name="ID_zakaza" />
+          </Key>
+          <Property Name="ID_zakaza" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_zapchasti" Type="Int32" Nullable="false" />
+          <Property Name="Kolichestvo" Type="Int32" Nullable="false" />
+          <Property Name="Data_zakaza" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Status_zakaza" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_sotrudnika" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="b_Sotrudniki" Relationship="Self.FK__b_Zakazi__ID_sot__6A9BA5F4" FromRole="b_Zakazi" ToRole="b_Sotrudniki" />
+          <NavigationProperty Name="b_Zapchasti" Relationship="Self.FK__b_Zakazi__ID_zap__69A781BB" FromRole="b_Zakazi" ToRole="b_Zapchasti" />
+        </EntityType>
+        <EntityType Name="b_Zapchasti">
+          <Key>
+            <PropertyRef Name="ID_zapchasti" />
+          </Key>
+          <Property Name="ID_zapchasti" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazvanie" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_proizvoditela" Type="Int32" Nullable="false" />
+          <Property Name="Cena" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <NavigationProperty Name="b_Proizvoditeli" Relationship="Self.FK__b_Zapchas__ID_pr__5D41AAD6" FromRole="b_Zapchasti" ToRole="b_Proizvoditeli" />
+          <NavigationProperty Name="b_Zakazi" Relationship="Self.FK__b_Zakazi__ID_zap__69A781BB" FromRole="b_Zapchasti" ToRole="b_Zakazi" />
+          <NavigationProperty Name="b_Zapchasti_dla_obslygivania" Relationship="Self.FK__b_Zapchas__ID_za__61123BBA" FromRole="b_Zapchasti" ToRole="b_Zapchasti_dla_obslygivania" />
+          <NavigationProperty Name="b_Zapchasti_na_sklade" Relationship="Self.FK__b_Zapchas__ID_za__66CB1510" FromRole="b_Zapchasti" ToRole="b_Zapchasti_na_sklade" />
+        </EntityType>
+        <EntityType Name="b_Zapchasti_dla_obslygivania">
+          <Key>
+            <PropertyRef Name="ID_Zapchati_dla_obsl" />
+          </Key>
+          <Property Name="ID_Zapchati_dla_obsl" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_tehnicheskoe_obsl" Type="Int32" Nullable="false" />
+          <Property Name="ID_zapchasti" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="b_Tehnicheskoe_obsl" Relationship="Self.FK__b_Zapchas__ID_te__601E1781" FromRole="b_Zapchasti_dla_obslygivania" ToRole="b_Tehnicheskoe_obsl" />
+          <NavigationProperty Name="b_Zapchasti" Relationship="Self.FK__b_Zapchas__ID_za__61123BBA" FromRole="b_Zapchasti_dla_obslygivania" ToRole="b_Zapchasti" />
+        </EntityType>
+        <EntityType Name="b_Zapchasti_na_sklade">
+          <Key>
+            <PropertyRef Name="ID_zapchasti_na_sklade" />
+          </Key>
+          <Property Name="ID_zapchasti_na_sklade" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_sklada" Type="Int32" Nullable="false" />
+          <Property Name="ID_zapchasti" Type="Int32" Nullable="false" />
+          <Property Name="Kolichestvo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="b_Skladi" Relationship="Self.FK__b_Zapchas__ID_sk__65D6F0D7" FromRole="b_Zapchasti_na_sklade" ToRole="b_Skladi" />
+          <NavigationProperty Name="b_Zapchasti" Relationship="Self.FK__b_Zapchas__ID_za__66CB1510" FromRole="b_Zapchasti_na_sklade" ToRole="b_Zapchasti" />
+        </EntityType>
+        <Association Name="FK__b_Zapchas__ID_pr__5D41AAD6">
+          <End Role="b_Proizvoditeli" Type="Self.b_Proizvoditeli" Multiplicity="1" />
+          <End Role="b_Zapchasti" Type="Self.b_Zapchasti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="b_Proizvoditeli">
+              <PropertyRef Name="ID_proizvoditela" />
+            </Principal>
+            <Dependent Role="b_Zapchasti">
+              <PropertyRef Name="ID_proizvoditela" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__b_Sotrudn__ID_ro__53B8409C">
+          <End Role="b_role" Type="Self.b_role" Multiplicity="1" />
+          <End Role="b_Sotrudniki" Type="Self.b_Sotrudniki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="b_role">
+              <PropertyRef Name="ID_role" />
+            </Principal>
+            <Dependent Role="b_Sotrudniki">
+              <PropertyRef Name="ID_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__b_Tehnich__ID_sa__5694AD47">
+          <End Role="b_Samolet" Type="Self.b_Samolet" Multiplicity="1" />
+          <End Role="b_Tehnicheskoe_obsl" Type="Self.b_Tehnicheskoe_obsl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="b_Samolet">
+              <PropertyRef Name="ID_samoleta" />
+            </Principal>
+            <Dependent Role="b_Tehnicheskoe_obsl">
+              <PropertyRef Name="ID_samoleta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__b_Zapchas__ID_sk__65D6F0D7">
+          <End Role="b_Skladi" Type="Self.b_Skladi" Multiplicity="1" />
+          <End Role="b_Zapchasti_na_sklade" Type="Self.b_Zapchasti_na_sklade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="b_Skladi">
+              <PropertyRef Name="ID_sklada" />
+            </Principal>
+            <Dependent Role="b_Zapchasti_na_sklade">
+              <PropertyRef Name="ID_sklada" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__b_Tehnich__ID_so__587CF5B9">
+          <End Role="b_Sotrudniki" Type="Self.b_Sotrudniki" Multiplicity="1" />
+          <End Role="b_Tehnicheskoe_obsl" Type="Self.b_Tehnicheskoe_obsl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="b_Sotrudniki">
+              <PropertyRef Name="ID_sotrudnika" />
+            </Principal>
+            <Dependent Role="b_Tehnicheskoe_obsl">
+              <PropertyRef Name="ID_sotrudnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__b_Zakazi__ID_sot__6A9BA5F4">
+          <End Role="b_Sotrudniki" Type="Self.b_Sotrudniki" Multiplicity="1" />
+          <End Role="b_Zakazi" Type="Self.b_Zakazi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="b_Sotrudniki">
+              <PropertyRef Name="ID_sotrudnika" />
+            </Principal>
+            <Dependent Role="b_Zakazi">
+              <PropertyRef Name="ID_sotrudnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__b_Tehnich__ID_ti__5788D180">
+          <End Role="b_Tip_obslygivania" Type="Self.b_Tip_obslygivania" Multiplicity="1" />
+          <End Role="b_Tehnicheskoe_obsl" Type="Self.b_Tehnicheskoe_obsl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="b_Tip_obslygivania">
+              <PropertyRef Name="ID_tipa_obslygivania" />
+            </Principal>
+            <Dependent Role="b_Tehnicheskoe_obsl">
+              <PropertyRef Name="ID_tipa_obslygivania" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__b_Zapchas__ID_te__601E1781">
+          <End Role="b_Tehnicheskoe_obsl" Type="Self.b_Tehnicheskoe_obsl" Multiplicity="1" />
+          <End Role="b_Zapchasti_dla_obslygivania" Type="Self.b_Zapchasti_dla_obslygivania" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="b_Tehnicheskoe_obsl">
+              <PropertyRef Name="ID_tehnicheskoe_obsl" />
+            </Principal>
+            <Dependent Role="b_Zapchasti_dla_obslygivania">
+              <PropertyRef Name="ID_tehnicheskoe_obsl" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__b_Zakazi__ID_zap__69A781BB">
+          <End Role="b_Zapchasti" Type="Self.b_Zapchasti" Multiplicity="1" />
+          <End Role="b_Zakazi" Type="Self.b_Zakazi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="b_Zapchasti">
+              <PropertyRef Name="ID_zapchasti" />
+            </Principal>
+            <Dependent Role="b_Zakazi">
+              <PropertyRef Name="ID_zapchasti" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__b_Zapchas__ID_za__61123BBA">
+          <End Role="b_Zapchasti" Type="Self.b_Zapchasti" Multiplicity="1" />
+          <End Role="b_Zapchasti_dla_obslygivania" Type="Self.b_Zapchasti_dla_obslygivania" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="b_Zapchasti">
+              <PropertyRef Name="ID_zapchasti" />
+            </Principal>
+            <Dependent Role="b_Zapchasti_dla_obslygivania">
+              <PropertyRef Name="ID_zapchasti" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__b_Zapchas__ID_za__66CB1510">
+          <End Role="b_Zapchasti" Type="Self.b_Zapchasti" Multiplicity="1" />
+          <End Role="b_Zapchasti_na_sklade" Type="Self.b_Zapchasti_na_sklade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="b_Zapchasti">
+              <PropertyRef Name="ID_zapchasti" />
+            </Principal>
+            <Dependent Role="b_Zapchasti_na_sklade">
+              <PropertyRef Name="ID_zapchasti" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="user31_dbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="b_Proizvoditeli" EntityType="Self.b_Proizvoditeli" />
+          <EntitySet Name="b_role" EntityType="Self.b_role" />
+          <EntitySet Name="b_Samolet" EntityType="Self.b_Samolet" />
+          <EntitySet Name="b_Skladi" EntityType="Self.b_Skladi" />
+          <EntitySet Name="b_Sotrudniki" EntityType="Self.b_Sotrudniki" />
+          <EntitySet Name="b_Tehnicheskoe_obsl" EntityType="Self.b_Tehnicheskoe_obsl" />
+          <EntitySet Name="b_Tip_obslygivania" EntityType="Self.b_Tip_obslygivania" />
+          <EntitySet Name="b_Zakazi" EntityType="Self.b_Zakazi" />
+          <EntitySet Name="b_Zapchasti" EntityType="Self.b_Zapchasti" />
+          <EntitySet Name="b_Zapchasti_dla_obslygivania" EntityType="Self.b_Zapchasti_dla_obslygivania" />
+          <EntitySet Name="b_Zapchasti_na_sklade" EntityType="Self.b_Zapchasti_na_sklade" />
+          <AssociationSet Name="FK__b_Zapchas__ID_pr__5D41AAD6" Association="Self.FK__b_Zapchas__ID_pr__5D41AAD6">
+            <End Role="b_Proizvoditeli" EntitySet="b_Proizvoditeli" />
+            <End Role="b_Zapchasti" EntitySet="b_Zapchasti" />
+          </AssociationSet>
+          <AssociationSet Name="FK__b_Sotrudn__ID_ro__53B8409C" Association="Self.FK__b_Sotrudn__ID_ro__53B8409C">
+            <End Role="b_role" EntitySet="b_role" />
+            <End Role="b_Sotrudniki" EntitySet="b_Sotrudniki" />
+          </AssociationSet>
+          <AssociationSet Name="FK__b_Tehnich__ID_sa__5694AD47" Association="Self.FK__b_Tehnich__ID_sa__5694AD47">
+            <End Role="b_Samolet" EntitySet="b_Samolet" />
+            <End Role="b_Tehnicheskoe_obsl" EntitySet="b_Tehnicheskoe_obsl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__b_Zapchas__ID_sk__65D6F0D7" Association="Self.FK__b_Zapchas__ID_sk__65D6F0D7">
+            <End Role="b_Skladi" EntitySet="b_Skladi" />
+            <End Role="b_Zapchasti_na_sklade" EntitySet="b_Zapchasti_na_sklade" />
+          </AssociationSet>
+          <AssociationSet Name="FK__b_Tehnich__ID_so__587CF5B9" Association="Self.FK__b_Tehnich__ID_so__587CF5B9">
+            <End Role="b_Sotrudniki" EntitySet="b_Sotrudniki" />
+            <End Role="b_Tehnicheskoe_obsl" EntitySet="b_Tehnicheskoe_obsl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__b_Zakazi__ID_sot__6A9BA5F4" Association="Self.FK__b_Zakazi__ID_sot__6A9BA5F4">
+            <End Role="b_Sotrudniki" EntitySet="b_Sotrudniki" />
+            <End Role="b_Zakazi" EntitySet="b_Zakazi" />
+          </AssociationSet>
+          <AssociationSet Name="FK__b_Tehnich__ID_ti__5788D180" Association="Self.FK__b_Tehnich__ID_ti__5788D180">
+            <End Role="b_Tip_obslygivania" EntitySet="b_Tip_obslygivania" />
+            <End Role="b_Tehnicheskoe_obsl" EntitySet="b_Tehnicheskoe_obsl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__b_Zapchas__ID_te__601E1781" Association="Self.FK__b_Zapchas__ID_te__601E1781">
+            <End Role="b_Tehnicheskoe_obsl" EntitySet="b_Tehnicheskoe_obsl" />
+            <End Role="b_Zapchasti_dla_obslygivania" EntitySet="b_Zapchasti_dla_obslygivania" />
+          </AssociationSet>
+          <AssociationSet Name="FK__b_Zakazi__ID_zap__69A781BB" Association="Self.FK__b_Zakazi__ID_zap__69A781BB">
+            <End Role="b_Zapchasti" EntitySet="b_Zapchasti" />
+            <End Role="b_Zakazi" EntitySet="b_Zakazi" />
+          </AssociationSet>
+          <AssociationSet Name="FK__b_Zapchas__ID_za__61123BBA" Association="Self.FK__b_Zapchas__ID_za__61123BBA">
+            <End Role="b_Zapchasti" EntitySet="b_Zapchasti" />
+            <End Role="b_Zapchasti_dla_obslygivania" EntitySet="b_Zapchasti_dla_obslygivania" />
+          </AssociationSet>
+          <AssociationSet Name="FK__b_Zapchas__ID_za__66CB1510" Association="Self.FK__b_Zapchas__ID_za__66CB1510">
+            <End Role="b_Zapchasti" EntitySet="b_Zapchasti" />
+            <End Role="b_Zapchasti_na_sklade" EntitySet="b_Zapchasti_na_sklade" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище user31_dbModelContainer" CdmEntityContainer="user31_dbEntities">
+          <EntitySetMapping Name="b_Proizvoditeli">
+            <EntityTypeMapping TypeName="user31_dbModel.b_Proizvoditeli">
+              <MappingFragment StoreEntitySet="b_Proizvoditeli">
+                <ScalarProperty Name="ID_proizvoditela" ColumnName="ID_proizvoditela" />
+                <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="b_role">
+            <EntityTypeMapping TypeName="user31_dbModel.b_role">
+              <MappingFragment StoreEntitySet="b_role">
+                <ScalarProperty Name="ID_role" ColumnName="ID_role" />
+                <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="b_Samolet">
+            <EntityTypeMapping TypeName="user31_dbModel.b_Samolet">
+              <MappingFragment StoreEntitySet="b_Samolet">
+                <ScalarProperty Name="ID_samoleta" ColumnName="ID_samoleta" />
+                <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="God_proizvodstva" ColumnName="God_proizvodstva" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="b_Skladi">
+            <EntityTypeMapping TypeName="user31_dbModel.b_Skladi">
+              <MappingFragment StoreEntitySet="b_Skladi">
+                <ScalarProperty Name="ID_sklada" ColumnName="ID_sklada" />
+                <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="b_Sotrudniki">
+            <EntityTypeMapping TypeName="user31_dbModel.b_Sotrudniki">
+              <MappingFragment StoreEntitySet="b_Sotrudniki">
+                <ScalarProperty Name="ID_sotrudnika" ColumnName="ID_sotrudnika" />
+                <ScalarProperty Name="Familia" ColumnName="Familia" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Otchestvo" ColumnName="Otchestvo" />
+                <ScalarProperty Name="ID_role" ColumnName="ID_role" />
+                <ScalarProperty Name="Dolgnost" ColumnName="Dolgnost" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="b_Tehnicheskoe_obsl">
+            <EntityTypeMapping TypeName="user31_dbModel.b_Tehnicheskoe_obsl">
+              <MappingFragment StoreEntitySet="b_Tehnicheskoe_obsl">
+                <ScalarProperty Name="ID_tehnicheskoe_obsl" ColumnName="ID_tehnicheskoe_obsl" />
+                <ScalarProperty Name="ID_samoleta" ColumnName="ID_samoleta" />
+                <ScalarProperty Name="Data_obslygivania" ColumnName="Data_obslygivania" />
+                <ScalarProperty Name="ID_tipa_obslygivania" ColumnName="ID_tipa_obslygivania" />
+                <ScalarProperty Name="Opisanie" ColumnName="Opisanie" />
+                <ScalarProperty Name="ID_sotrudnika" ColumnName="ID_sotrudnika" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="b_Tip_obslygivania">
+            <EntityTypeMapping TypeName="user31_dbModel.b_Tip_obslygivania">
+              <MappingFragment StoreEntitySet="b_Tip_obslygivania">
+                <ScalarProperty Name="ID_tipa_obslygivania" ColumnName="ID_tipa_obslygivania" />
+                <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="b_Zakazi">
+            <EntityTypeMapping TypeName="user31_dbModel.b_Zakazi">
+              <MappingFragment StoreEntitySet="b_Zakazi">
+                <ScalarProperty Name="ID_zakaza" ColumnName="ID_zakaza" />
+                <ScalarProperty Name="ID_zapchasti" ColumnName="ID_zapchasti" />
+                <ScalarProperty Name="Kolichestvo" ColumnName="Kolichestvo" />
+                <ScalarProperty Name="Data_zakaza" ColumnName="Data_zakaza" />
+                <ScalarProperty Name="Status_zakaza" ColumnName="Status_zakaza" />
+                <ScalarProperty Name="ID_sotrudnika" ColumnName="ID_sotrudnika" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="b_Zapchasti">
+            <EntityTypeMapping TypeName="user31_dbModel.b_Zapchasti">
+              <MappingFragment StoreEntitySet="b_Zapchasti">
+                <ScalarProperty Name="ID_zapchasti" ColumnName="ID_zapchasti" />
+                <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
+                <ScalarProperty Name="ID_proizvoditela" ColumnName="ID_proizvoditela" />
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="b_Zapchasti_dla_obslygivania">
+            <EntityTypeMapping TypeName="user31_dbModel.b_Zapchasti_dla_obslygivania">
+              <MappingFragment StoreEntitySet="b_Zapchasti_dla_obslygivania">
+                <ScalarProperty Name="ID_Zapchati_dla_obsl" ColumnName="ID_Zapchati_dla_obsl" />
+                <ScalarProperty Name="ID_tehnicheskoe_obsl" ColumnName="ID_tehnicheskoe_obsl" />
+                <ScalarProperty Name="ID_zapchasti" ColumnName="ID_zapchasti" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="b_Zapchasti_na_sklade">
+            <EntityTypeMapping TypeName="user31_dbModel.b_Zapchasti_na_sklade">
+              <MappingFragment StoreEntitySet="b_Zapchasti_na_sklade">
+                <ScalarProperty Name="ID_zapchasti_na_sklade" ColumnName="ID_zapchasti_na_sklade" />
+                <ScalarProperty Name="ID_sklada" ColumnName="ID_sklada" />
+                <ScalarProperty Name="ID_zapchasti" ColumnName="ID_zapchasti" />
+                <ScalarProperty Name="Kolichestvo" ColumnName="Kolichestvo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
